@@ -27,7 +27,8 @@ export class ClienteListComponent implements OnInit {
     this.clienteService.list()
     .pipe(this.listErrorCatch())
     .subscribe(({ contents }) => {
-      this.clientes = contents;
+      //this.clientes = Cliente.fromDto(Cliente.toDto(contents));
+      this.clientes = contents
     });
 
     this.columns = this.getGridColumns();
@@ -35,14 +36,15 @@ export class ClienteListComponent implements OnInit {
   }
 
   private getGridColumns() {
-    const gridcloumns = [
+    const gridcolumns = [
       { field: 'nome', header: 'Nome' },
       { field: 'dataNascimento', header: 'Data de Nascimento' },
       { field: 'creditoHabilitado', header: 'Credito Habilitado' },
       { field: 'cpf', header: 'CPF' },
+      { field: 'Botões', header: 'Botões'}
     ];
 
-    return gridcloumns;
+    return gridcolumns;
   }
 
   public onRemove(item: Cliente) {

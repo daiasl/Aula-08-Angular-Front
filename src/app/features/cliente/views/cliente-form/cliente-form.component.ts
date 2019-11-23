@@ -37,6 +37,7 @@ export class ClienteFormComponent implements OnInit {
 
   private getFormGroup() {
     return this.formBuilder.group({
+      id: new FormControl(undefined, Validators.compose([Validators.required])),
       nome: new FormControl(undefined, Validators.compose([Validators.required])),
       dataNascimento: new FormControl(undefined, Validators.compose([Validators.required])),
       creditoHabilitado: new FormControl(undefined, Validators.compose([Validators.required])),
@@ -70,6 +71,10 @@ export class ClienteFormComponent implements OnInit {
       this.goBack();
       console.log(`Saved`);
     });
+  }
+  public onCancel(){
+    const previousRoute = '/cliente/list';
+    this.router.navigate([previousRoute], { relativeTo: this.route.parent });
   }
 
   public isNew() {

@@ -10,6 +10,13 @@
     <div class="">
       <div class="ui-g ui-fluid">
         <div class="ui-g-12 ui-md-12 ui-lg-12">
+          <label class="required" for="itemName">Id do Cliente:</label>
+          <div class="ui-inputgroup">
+            <input #nomeFormInput type="text" id="id" name="id" pInputText formControlName="id" autocomplete="off" placeholder="Ex: 4327e246-2b12-4959-a256-9c08d740f155"/>
+          </div>
+        </div>
+
+        <div class="ui-g-12 ui-md-12 ui-lg-12">
           <label class="required" for="itemName">Nome do Cliente:</label>
           <div class="ui-inputgroup">
             <input #nomeFormInput type="text" id="nome" name="nome" pInputText formControlName="nome" autocomplete="off" placeholder="Ex: Fulano de tal"/>
