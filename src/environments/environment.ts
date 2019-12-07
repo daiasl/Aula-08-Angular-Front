@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   BASE_URL: 'https://platform-homologx.senior.com.br/t/senior.com.br/bridge/1.0',
-  TOKEN: '72f4bf9cbb047b1f1b4320170bffa4f0'
+  TOKEN: '7b09d86bf8332a3dd9dcecb5526e8a0e'
 };
 
 /*

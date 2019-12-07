@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
+
 @Component({
   selector: 'app-cliente-list',
   templateUrl: './cliente-list.component.html',
@@ -15,7 +16,9 @@ export class ClienteListComponent implements OnInit {
 
   clientes: Cliente[];
   columns: any[];
-
+  display: boolean = false;
+  cliente: Cliente;
+      
   constructor(
     private clienteService: ClienteService,
     private messageService: MessageService,
@@ -60,9 +63,25 @@ export class ClienteListComponent implements OnInit {
   public onAdd() {
     this.router.navigate(['/cliente/create'], { relativeTo: this.route });
   }
+  // public onEdit(){        
+  //   const value: any = Cliente.fromDto({
+  //     id: "123",
+  //     nome: "João",
+  //     dataNascimento:"12/07/2019",
+  //     cpf: "12345678900",
+  //     creditoHabilitado:"true",
+  //     idFoto: "ABC"
+  //   });
+  //   this.cliente = value;
+  //   this.display = true;
+
+  // }
+  
 
   public editItem(cliente: Cliente) {
-    this.router.navigate([`/cliente/edit/${cliente.id}`], { relativeTo: this.route });
+    this.cliente = Cliente.fromDto(cliente);
+    this.display=true;
+    //this.router.navigate([`/cliente/edit/${cliente.id}`], { relativeTo: this.route });
   }
 
   public onRemoveConfirm(item: any) {
@@ -97,6 +116,10 @@ export class ClienteListComponent implements OnInit {
         }
         return throwError(err);
       });
+  }
+
+  public onCancel(){
+    this.display = false;
   }
 
 }
